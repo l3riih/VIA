@@ -9,6 +9,7 @@
 import numpy as np
 import cv2 as cv
 
+
 from umucv.util import ROI
 from umucv.stream import autoStream
 

@@ -16,15 +16,12 @@ region = ROI("input")
 
 
 for key, frame in autoStream():
-    trozo = None
+
     if region.roi:
         [x1,y1,x2,y2] = region.roi
         if key == ord('c'):
-            if trozo != None:
-                diffabs = cv.absdiff(trozo, frame[y1:y2+1, x1:x2+1] )
             trozo = frame[y1:y2+1, x1:x2+1]
-            if trozo != None:
-                cv.imshow("trozo", diffabs)
+            cv.imshow("trozo", trozo)
         if key == ord('x'):
             region.roi = []
 
@@ -36,4 +33,3 @@ for key, frame in autoStream():
     h,w,_ = frame.shape
     putText(frame, f'{w}x{h}')
     cv.imshow('input',frame)
-

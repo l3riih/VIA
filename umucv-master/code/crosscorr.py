@@ -18,9 +18,9 @@ model = None
 
 
 for key, frame in autoStream():
-    
+
     gray = cv.cvtColor(frame,cv.COLOR_BGR2GRAY).astype(np.float32)/255
-    
+
     if region.roi:
         [x1,y1,x2,y2] = region.roi
         if key == ord('c'):
@@ -43,9 +43,8 @@ for key, frame in autoStream():
         x2 = x1+w; y2 = y1+h
         cv.rectangle(frame, (x1,y1), (x2,y2), color=(0,255,255), thickness=2)
 
-   
+
 
     h,w,_ = frame.shape
     putText(frame, f'{w}x{h}')
     cv.imshow('input',frame)
-

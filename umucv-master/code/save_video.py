@@ -16,7 +16,7 @@ video = Video(fps=15, codec="MJPG",ext="avi")
 
 # Si queremos que empiece a grabar desde el primer frame
 # video.ON = True
-
+graba = False
 
 for key, frame in autoStream():
 
@@ -25,7 +25,12 @@ for key, frame in autoStream():
     # la tecla v inicia y detiene la grabación
     # la imagen no debe cambiar de tamaño
     # y debe estar en formato BGR
-    video.write(frame, key, ord('v'))
+    if graba == False:
+        video.write(frame, 1,1)
+        graba = True
+    if graba == True:
+        video.write(frame, 1,0)
+        print(len(Video.release(Video)))
 
 cv.destroyAllWindows()
 video.release()
