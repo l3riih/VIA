@@ -10,9 +10,9 @@ virt = mkStream(dev='dir:../images/cube3.png')
 virtbgf = next(virt)
 
 bgsub = cv.createBackgroundSubtractorMOG2(500, 16, False)
-#El kernel se craea con todos uno por que la erosion se tien que aplicar a todos los vecinios
-#por igual.  verifique si los píxeles vecinos son también iguales a 1
-# Si es así, entonces el píxel central también se mantiene como 1, pero si al menos un vecino es 0, entonces el píxel central se cambia a
+# El kernel se craea con todos uno por que la erosion se tien que aplicar a todos los vecinios por igual.  verifique
+# si los píxeles vecinos son ambient iguales a 1 Si es así, entonces el píxel central también se mantiene como 1,
+# pero si al menos un vecino es 0, sentences el píxel central se cambia a
 kernel = np.ones((3, 3), np.uint8)
 
 update = True
